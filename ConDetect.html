@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:MSIE="urn:default">
+<HEAD>
+<STYLE>
+        MSIE\:CLIENTCAPS {behavior:url(#default#clientcaps)}
+</STYLE>
+<TITLE> Connection Detection Test </TITLE>
+</HEAD>
+
+<BODY>
+<MSIE:CLIENTCAPS ID="idClCap" />
+	<java>
+	  String ctype = request.getParameter("ctype");
+	  if(ctype==null || !ctype.equals("modem"))
+	  {   
+	</java>
+		<script language="JavaScript">
+			if(document.all.idClCap.connectionType != "modem")
+			{
+				f=0;
+				alert('Broadband 2')
+				document.location="http://www.persianconnections.com/xxBroadband.cgi?"
+			}                
+		</script>       
+	<java>          
+	  }             
+	</java>
+</BODY>
+</HTML>

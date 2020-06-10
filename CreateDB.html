@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Connections Admin -- Create New Database</title>
+</head>
+<body>
+<form name="theForm" onsubmit="return checkForm(this)" method="POST" action="cgi-bin/CreateDB.cgi">
+
+<table border="1" width="184" cellpadding="3" cellspacing="3">
+
+<font size="3"><STRONG>Create Database:</STRONG></font>
+
+<!-- Header Column-->
+<tr>
+<td nowrap><font size="3">Object</font></td>
+<td nowrap><font size="3">Delete</font></td>
+<td nowrap><font size="3">Create</font></td>
+<td nowrap><font size="3">Errors</font></td>
+</tr>
+
+<!-- db_name-->
+<tr>
+<td nowrap><font size="2">DB Name:</font><input name="db_name" size="15" onBlur=propagateDBName()></td>
+<td nowrap><INPUT TYPE=CHECKBOX NAME=db_name_delete><font size="2">Delete Existing</font></TD>
+<td nowrap><INPUT TYPE=CHECKBOX NAME=db_name_create><font size="2">Create New</font></TD>
+<td nowrap><INPUT TYPE=CHECKBOX NAME=db_name_ignore><font size="2">Ignore Errors</font></TD>
+</tr>
+
+<!-- required_tables -->
+<tr>
+<td nowrap><font size="2">All Tables:</font></TD>
+<td colspan="2" nowrap><INPUT TYPE=CHECKBOX NAME=required_tables_delete_add><font size="2">Delete Old & Create New</font></TD>
+<td nowrap><INPUT TYPE=CHECKBOX NAME=required_tables_ignore><font size="2">Ignore Errors</font></TD>
+</tr>
+
+<!-- initialize_lookup_tables -->
+<tr>
+<td nowrap><font size="2">Lookup Tables:</font></TD>
+<td colspan="2" nowrap><INPUT TYPE=CHECKBOX NAME=initialize_lookup_tables><font size="2">Initialize All Lookup Tables</font></TD>
+<td nowrap><INPUT TYPE=CHECKBOX NAME=initialize_lookup_tables_ignore><font size="2">Ignore Errors</font></TD>
+</tr>
+
+<!-- create_Administrator_profile -->
+<tr>
+<td nowrap><font size="2">Create Administrator Profile:</font></TD>
+<td colspan="2" nowrap><INPUT TYPE=CHECKBOX NAME=create_Administrator_profile><font size="2">Initialize Administrator Profile</font></TD>
+<td nowrap><INPUT TYPE=CHECKBOX NAME=create_Administrator_profile_ignore><font size="2">Ignore Errors</font></TD>
+</tr>
+
+<!-- user_stored_procedures -->
+<tr>
+<td nowrap><font size="2">User Stored Procs:</font></TD>
+<td colspan="2" nowrap><INPUT TYPE=CHECKBOX NAME=user_stored_procedures_delete_add><font size="2">Delete Old & Create New</font></TD>
+<td nowrap><INPUT TYPE=CHECKBOX NAME=user_stored_procedures_ignore><font size="2">Ignore Errors</font></TD>
+</tr>
+
+<!-- admin_stored_procedures -->
+<tr>
+<td nowrap><font size="2">Admin Stored Procs:</font></TD>
+<td colspan="2" nowrap><INPUT TYPE=CHECKBOX NAME=admin_stored_procedures_delete_add><font size="2">Delete Old & Create New</font></TD>
+<td nowrap><INPUT TYPE=CHECKBOX NAME=admin_stored_procedures_ignore><font size="2">Ignore Errors</font></TD>
+</tr>
+
+</table>
+
+<table border="1" width="184" cellpadding="3" cellspacing="3">
+<BR>
+<font size="3"><STRONG>Add Logins:</STRONG></font>
+
+<!-- Header Column-->
+<tr>
+<td nowrap><font size="3">Name</font></td>
+<td nowrap><font size="3">Password / Verify</font></td>
+<td nowrap><font size="3">Delete</font></td>
+<td nowrap><font size="3">Create</font></td>
+<td nowrap><font size="3">Default DB</font></td>
+<td nowrap><font size="3">Errors</font></td>
+</tr>
+
+<!-- user_name -->
+<tr>
+<td nowrap><font size="2">User :</font><input name="user_name" size="15"></td>
+<td nowrap><input name="user_password" type="password" size="5"> / <input name="user_password_verify" type="password" size="5"></td>
+<td nowrap><INPUT TYPE=CHECKBOX NAME=user_name_delete><font size="2">Delete Existing</font></TD>
+<td nowrap><INPUT TYPE=CHECKBOX NAME=user_name_create><font size="2">Create New</font></TD>
+<td nowrap><font size="2"></font><input name="user_default_db" size="15"></td>
+<td nowrap><INPUT TYPE=CHECKBOX NAME=user_name_ignore><font size="2">Ignore Errors</font></TD>
+</tr>
+
+<!-- admin_name -->
+<tr>
+<td nowrap><font size="2">Admin:</font><input name="admin_name" size="15"></td>
+<td nowrap><input name="admin_password" type="password" size="5"> / <input name="admin_password_verify" type="password" size="5"></td>
+<td nowrap><INPUT TYPE=CHECKBOX NAME=admin_name_delete><font size="2">Delete Existing</font></TD>
+<td nowrap><INPUT TYPE=CHECKBOX NAME=admin_name_create><font size="2">Create New</font></TD>
+<td nowrap><font size="2"></font><input name="admin_default_db" size="15"></td>
+<td nowrap><INPUT TYPE=CHECKBOX NAME=admin_name_ignore><font size="2">Ignore Errors</font></TD>
+</tr>
+
+</table>
+
+<table border="1" width="184" cellpadding="3" cellspacing="3">
+<BR>
+<font size="3"><STRONG>Database Admin:</STRONG></font>
+
+<!-- db_admin_name-->
+<tr>
+<td nowrap><font size="2">DB Admin Name:</font> </td>
+<td nowrap><input name="db_admin_name" size="15"> </td>
+</tr>
+
+<!-- db_admin_password -->
+<tr>
+<td nowrap><font size="2">DB Admin Password:</font> </td>
+<td nowrap><input name="db_admin_password" size="15" type="password"> </td>
+</tr>
+</table>
+
+<input type="submit" name="submit" value="submit">
+<input type="button" name="clear_all" value="Clear All" onClick=ClearAll(theForm)>
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+function checkForm(theForm)
+{
+// ----- db_name
+  if (!theForm.db_name.value == "")
+  {
+    if (!validName(theForm.db_name.value))
+    {
+      alert("Please enter a valid value for the \"DB Name\" field.\nThe follwoing are invalid( ~`!@#$%^&*()-+={[}]|\"',<.>?/:;\)")
+      theForm.db_name.focus()
+      return (false)
+    }
+
+    if (theForm.db_name_delete.checked == false && theForm.db_name_create.checked == false && theForm.db_name_ignore.checked == false)
+    {
+      alert("In the \"DB Name\" row check \"Delete Existing\", \"Create New\", \"Ignore\" or all three.")
+      theForm.db_name_delete.focus()
+      return (false)
+    }
+
+  }
+
+// ----- user_name
+  if (!theForm.user_name.value == "")
+  {
+     if (!validName(theForm.user_name.value))
+     {
+       alert("Please enter a valid value for the \"User Name\" field.\nThe follwoing are invalid( ~`!@#$%^&*()-+={[}]|\"',<.>?/:;\)")
+       theForm.user_name.focus()
+       return (false)
+     }
+
+   // ----- user_password
+     if (!validName(theForm.user_password.value))
+     {
+       alert("Please enter a valid value for the \"User Password\" field.\nThe follwoing are invalid( ~`!@#$%^&*()-+={[}]|\"',<.>?/:;\)")
+       theForm.user_password.focus()
+       return (false)
+     }
+
+   // ----- user_password_verify
+     if (theForm.user_password_verify.value == "")
+     {
+       alert("Please enter a value for the \"User Password Verification\" field.")
+       theForm.user_password_verify.focus()
+       return (false)
+     }
+
+   // ----- user_password_verify
+     if (theForm.user_password.value != theForm.user_password_verify.value)
+     {
+       alert("User Password fields do not match")
+       theForm.user_password.focus()
+       theForm.user_password.select()
+       return (false)
+     }
+
+     if (theForm.user_name_delete.checked == false && theForm.user_name_create.checked == false)
+     {
+       alert("In the \"User Name\" row check \"Delete Existing\", \"Create New\" or both.")
+       theForm.user_name_delete.focus()
+       return (false)
+     }
+
+     if (!validName(theForm.user_default_db.value))
+     {
+       alert("Please enter a valid value for the \"User Default DB\" field.\nThe follwoing are invalid( ~`!@#$%^&*()-+={[}]|\"',<.>?/:;\)")
+       theForm.user_default_db.focus()
+       return (false)
+     }
+   }
+
+// ----- admin_name
+  if (!theForm.admin_name.value == "")
+  {
+     if (!validName(theForm.admin_name.value))
+     {
+       alert("Please enter a valid value for the \"Admin Name\" field.\nThe follwoing are invalid( ~`!@#$%^&*()-+={[}]|\"',<.>?/:;\)")
+       theForm.admin_name.focus()
+       return (false)
+     }
+
+   // ----- admin_password
+     if (!validName(theForm.admin_password.value))
+     {
+       alert("Please enter a valid value for the \"Admin Password\" field.\nThe follwoing are invalid( ~`!@#$%^&*()-+={[}]|\"',<.>?/:;\)")
+       theForm.admin_password.focus()
+       return (false)
+     }
+
+   // ----- admin_password_verify
+     if (theForm.admin_password_verify.value == "")
+     {
+       alert("Please enter a value for the \"Admin Password Verification\" field.")
+       theForm.admin_password_verify.focus()
+       return (false)
+     }
+
+   // ----- admin_password_verify
+     if (theForm.admin_password.value != theForm.admin_password_verify.value)
+     {
+       alert("Admin Password fields do not match")
+       theForm.admin_password_verify.focus()
+       theForm.admin_password_verify.select()
+       return (false)
+     }
+
+     if (theForm.admin_name_delete.checked == false && theForm.admin_name_create.checked == false)
+     {
+       alert("In the \"Admin Name\" row check \"Delete Existing\", \"Create New\" or both.")
+       theForm.admin_name_delete.focus()
+       return (false)
+     }
+
+     if (!validName(theForm.admin_default_db.value))
+     {
+       alert("Please enter a valid value for the \"Admin Default DB\" field.\nThe follwoing are invalid( ~`!@#$%^&*()-+={[}]|\"',<.>?/:;\)")
+       theForm.admin_default_db.focus()
+       return (false)
+     }
+
+   }
+
+// ----- db_admin_name
+  if (theForm.db_admin_name.value == "")
+  {
+    alert("Please enter a value for the \"DB Admin Name\" field.")
+    theForm.db_admin_name.focus()
+    return (false)
+  }
+
+// ----- db_admin_password
+  if (theForm.db_admin_password.value == "")
+  {
+    alert("Please enter a value for the \"DB Admin Password\" field.")
+    theForm.db_admin_password.focus()
+    return (false)
+  }
+
+  return (true)
+}
+
+function validName(myName)
+{
+var invalidChars = " ~`!@#$%^&*()-+={[}]|\"',<.>?/:;\\"
+
+    // field cannot be empty...
+    if(myName == "")
+    {
+        return false
+    }
+
+    // does it contain any invalid characters...
+    for (i=0; i<invalidChars.length; i++)
+    {
+        badChar = invalidChars.charAt(i)
+        if (myName.indexOf(badChar, 0) > -1)
+        {
+            return false
+        }
+    }
+return true
+}
+
+function propagateDBName()
+{
+      theForm.user_default_db.value = theForm.db_name.value
+      theForm.admin_default_db.value = theForm.db_name.value
+}
+
+function ClearAll(myForm)
+{
+     myForm.db_name_delete.checked = false
+     myForm.db_name_create.checked = false
+     myForm.db_name.value = ""
+     myForm.db_name_ignore.checked = false
+
+     myForm.required_tables_delete_add.checked = false
+     myForm.required_tables_ignore.checked = false
+
+     myForm.initialize_lookup_tables.checked = false
+     myForm.initialize_lookup_tables_ignore.checked = false
+
+     myForm.create_Administrator_profile.checked = false
+     myForm.create_Administrator_profile_ignore.checked = false
+
+     myForm.user_stored_procedures_delete_add.checked = false
+     myForm.user_stored_procedures_ignore.checked = false
+
+     myForm.admin_stored_procedures_delete_add.checked = false
+     myForm.admin_stored_procedures_ignore.checked = false
+
+     myForm.user_name_delete.checked = false
+     myForm.user_name_create.checked = false
+     myForm.user_name.value = ""
+     myForm.user_password.value = ""
+     myForm.user_password_verify.value = ""
+     myForm.user_default_db.value = ""
+     myForm.user_name_ignore.checked = false
+
+     myForm.admin_name_delete.checked = false
+     myForm.admin_name_create.checked = false
+     myForm.admin_name.value = ""
+     myForm.admin_password.value = ""
+     myForm.admin_password_verify.value = ""
+     myForm.admin_default_db.value = ""
+     myForm.admin_name_ignore.checked = false
+
+     myForm.db_admin_name.value = ""
+     myForm.db_admin_password.value = ""
+}
+// ...End JavaScript -->
+</script>
+</body>
+</html>
+

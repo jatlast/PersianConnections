@@ -1,0 +1,339 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><title>TAASC: Credit Card Validation Solution (Perl Edition)</title>
+<meta name="author" content="The Analysis and Solutions Company" />
+<meta name="generator" content="The Analysis and Solutions Company" />
+<meta name="description" content="Ensures credit card numbers are keyed in correctly. Removes unwanted characters then checks against valid number ranges, lengths and checksums." />
+<meta name="keywords" content="credit card, number, validation, Perl, script" />
+<script type="text/javascript" language="javascript1.1">
+<!--
+ var codeOn = new Image();  codeOn.src = "../graphics/code-o.gif";
+ var codeOf = new Image();  codeOf.src = "../graphics/code-b.gif";
+ var examplesOn = new Image();  examplesOn.src = "../graphics/examples-o.gif";
+ var examplesOf = new Image();  examplesOf.src = "../graphics/examples-b.gif";
+ var researchOn = new Image();  researchOn.src = "../graphics/research-o.gif";
+ var researchOf = new Image();  researchOf.src = "../graphics/research-b.gif";
+ var webOn = new Image();  webOn.src = "../graphics/web-o.gif";
+ var webOf = new Image();  webOf.src = "../graphics/web-b.gif";
+ var subsqlOn = new Image();  subsqlOn.src = "../graphics/codes-sql-o.gif";
+ var subsqlOf = new Image();  subsqlOf.src = "../graphics/codes-sql-b.gif";
+ var subformOn = new Image();  subformOn.src = "../graphics/codes-form-o.gif";
+ var subformOf = new Image();  subformOf.src = "../graphics/codes-form-b.gif";
+ var sublayoutOn = new Image();  sublayoutOn.src = "../graphics/codes-layout-o.gif";
+ var sublayoutOf = new Image();  sublayoutOf.src = "../graphics/codes-layout-b.gif";
+ function ov(button) {
+  document.images[button].src = eval(button + "On.src");
+ }
+ function ou(button) {
+  document.images[button].src = eval(button + "Of.src");
+ }
+ //-->
+</script>
+</head>
+<body bgcolor="#006600" text="#FFFFFF" link="#99FF00" vlink="#CCCC99" alink="#CC0000">
+<table border="0" width="100%" summary="Logo and Navigation."><tr valign="top">
+ <td><a href="http://www.analysisandsolutions.com/"><img src="../graphics/logosm.gif" border="0" width="210" height="86" alt="Logo: The Analysis and Solutions Company" /></a></td>
+ <td align="right">
+  <table width="400" cellspacing="0" cellpadding="0" border="0" summary="Navigation System."><tr>
+   <td width="100" height="20"><a href="http://www.analysisandsolutions.com/code/" onmouseover="ov('code');" onmouseout="ou('code');"><img src="../graphics/code-b.gif" name="code" width="100" height="20" border="0" alt="Computer Code and Tutorials" /></a></td>
+   <td width="100" height="20"><a href="http://www.analysisandsolutions.com/examples/" onmouseover="ov('examples');" onmouseout="ou('examples');"><img src="../graphics/examples-b.gif" name="examples" width="100" height="20" border="0" alt="Project Examples" /></a></td>
+   <td width="100" height="20"><a href="http://www.analysisandsolutions.com/research/" onmouseover="ov('research');" onmouseout="ou('research');"><img src="../graphics/research-b.gif" name="research" width="100" height="20" border="0" alt="Research" /></a></td>
+   <td width="100" height="20"><a href="http://www.analysisandsolutions.com/web.htm" onmouseover="ov('web');" onmouseout="ou('web');"><img src="../graphics/web-b.gif" name="web" width="100" height="20" border="0" alt="Web Design" /></a></td>
+  </tr><tr valign="top">
+   <td width="100" height="41"><img src="../graphics/subspace.gif" width="100" height="2" /><br /><a href="http://www.analysisandsolutions.com/code/sql/" onmouseover="ov('subsql');" onmouseout="ou('subsql');"><img src="../graphics/codes-sql-b.gif" name="subsql" alt="SQL Solution" width="100" height="13" border="0" /></a><br /><a href="http://www.analysisandsolutions.com/code/form/" onmouseover="ov('subform');" onmouseout="ou('subform');"><img src="../graphics/codes-form-b.gif" name="subform" alt="Form Solution" width="100" height="13" border="0" /></a><br /><a href="http://www.analysisandsolutions.com/code/layout/" onmouseover="ov('sublayout');" onmouseout="ou('sublayout');"><img src="../graphics/codes-layout-b.gif" name="sublayout" alt="Layout Solution" width="100" height="13" border="0" /></a></td>
+   <td width="100" height="41"></td>
+   <td width="100" height="41"></td>
+   <td width="100" height="41"></td>
+  </tr></table>
+ </td>
+ </tr></table>
+<h1>Credit Card Validation Solution (Perl Edition)</h1>
+
+<h2>Version 3.6</h2>
+
+&nbsp;<h3>Description</h3>
+<p>Credit Card Validation Solution&#8482; uses a four step process to
+ensure credit card numbers are keyed in correctly. This procedure
+accurately checks cards from American Express, Australian BankCard,
+Carte Blache, Diners Club, Discover/Novus, JCB, MasterCard and
+Visa.</p>
+
+<p>For more information, please read the comments in the code
+itself.</p>
+
+&nbsp;<h3>Installation Instructions</h3>
+<ol>
+<li>Select the text between the two lines indicated, below.</li>
+<li>Copy the text.</li>
+<li>Open up a text editor.</li>
+<li>Paste the text.</li>
+<li>You may need to edit the &quot;#!&quot; path statement.</li>
+<li>Save that file.</li>
+<li>Open up a command prompt if you haven't got one running already.</li>
+<li>Change into the direcotry where you saved it.</li>
+<li>Run the file.  For instance, if you saved it as &quot;ccvs.pl,&quot;
+try running it by typing <code>ccvs.pl</code> or <code>perl ccvs.pl</code></li>
+</ol>
+
+<br /><i><b>Begin text selection below this line</b></i> 
+
+<hr align="left" width="50%" size="10" />
+<pre>
+
+#!/usr/local/bin/perl5 -w
+use strict;
+
+# ------------------------------------------------------------------------
+# Credit Card Validation Solution, version 3.6                Perl Edition
+# 25 May 2000
+#
+# COPYRIGHT NOTICE:
+# a) This code is property of The Analysis and Solutions Company.
+# b) It is being distributed free of charge and on an &quot;as is&quot; basis.
+# c) Use of this code, or any part thereof, is contingent upon leaving
+#     this copyright notice, name and address information in tact.
+# d) Written permission must be obtained from us before this code, or any
+#     part thereof, is sold or used in a product which is sold.
+# e) By using this code, you accept full responsibility for its use
+#     and will not hold the Analysis and Solutions Company, its employees
+#     or officers liable for damages of any sort.
+# f) This code is not to be used for illegal purposes.
+# g) Please email us any revisions made to this code.
+#
+# Copyright 2000                 http://www.AnalysisAndSolutions.com/code/
+# The Analysis and Solutions Company         info@AnalysisAndSolutions.com
+# ------------------------------------------------------------------------
+#
+# DESCRIPTION:
+# Credit Card Validation Solution uses a four step process to ensure
+# credit card numbers are keyed in correctly.  This procedure accurately
+# checks cards from American Express, Australian BankCard, Carte Blache,
+# Diners Club, Discover/Novus, JCB, MasterCard and Visa.
+#
+# CAUTION:
+# CCVS uses exact number ranges as part of the validation process. These
+# ranges are current as of 20 October 1999.  If presently undefined ranges
+# come into use in the future, this program will improperly deject card
+# numbers in such ranges, rendering an error message entitled &quot;Potential
+# Card Type Discrepancy.&quot;  If this happens while entering a card &amp; type
+# you KNOW are valid, please contact us so we can update the ranges.
+#
+# POTENTIAL CUSTOMIZATIONS:
+# *  If you don't accept some of these card types, edit Step 2, using pound
+# signs &quot;#&quot; to comment out the &quot;if,&quot; &quot;$CCVS::CardName&quot; and &quot;$ShouldLength&quot;
+# lines in question.
+# *  Additional card types can be added by inserting new &quot;if,&quot;
+# &quot;$CCVS::CardName&quot; and &quot;$ShouldLength&quot; lines in Step 2.
+# *  The three functions here can be called from elsewhere to check any number.
+#
+# CREDITS:
+# We learned of the Mod 10 Algorithm in some Perl code, entitled
+# &quot;The Validator,&quot; available on Matt's Script Archive,
+# http://worldwidemart.com/scripts/readme/ccver.shtml.  That code was
+# written by David Paris, who based it on material Melvyn Myers reposted
+# from an unknown author.  Paris credits Aries Solis for tracking down the
+# data underlying the algorithm.  At the same time, our code bears no
+# resemblance to its predecessors.  CCValidationSolution was first written
+# for Visual Basic, on which Allen Browne and Rico Zschau assisted.
+# Neil Fraser helped prune down the OnlyNumericSolution() for Perl.
+
+
+
+#  ------------  BEGIN SAMPLE USER INTERFACE SECTION  -------------
+#
+# This section provides a simple sample user interface for the
+# Credit Card Validation functions.  It prompts you for a card
+# number to check.
+#
+# For real world use, you'll probably want to delete this
+# section.  For example, delete this section and place the
+# remaining code into a CGI script called from an HTML form.
+# In that case, you'll need to add things like STDIN handling
+# and methods to ensure subshells aren't executed.
+#
+    use Term::ReadLine;
+
+    my $Term = new Term::ReadLine 'CC Validation Solution';
+    my $Prompt = &quot;Enter the credit card number in question: &quot;;
+    my $Number = $Term-&gt;readline($Prompt);
+
+    if (CCValidationSolution($Number)) {
+        print &quot;\nThe $CCVS::CardName number entered, $Number, IS valid.\n&quot;;
+    }
+#
+#  -------------  END SAMPLE USER INTERFACE SECTION  --------------
+
+
+
+sub CCValidationSolution() {
+    my $ShouldLength = &quot;&quot;;
+
+    # 1) Get rid of spaces and non-numeric characters for use in this function.
+    my $Number = OnlyNumericSolution($Number);
+
+    # 2) Do the first four digits fit within proper ranges?
+    #     If so, who's the card issuer and how long should the number be?
+    my $NumberLeft = substr($Number, 0, 4);
+    my $NumberLength = length($Number);
+
+    RANGE: {
+        if ($NumberLeft &gt;= 3000 and $NumberLeft &lt;= 3059) {
+            $CCVS::CardName = &quot;Diners Club&quot;;
+            $ShouldLength = 14;
+            last RANGE;
+        }
+        if ($NumberLeft &gt;= 3600 and $NumberLeft &lt;= 3699) {
+            $CCVS::CardName = &quot;Diners Club&quot;;
+            $ShouldLength = 14;
+            last RANGE;
+        }
+        if ($NumberLeft &gt;= 3800 and $NumberLeft &lt;= 3889) {
+            $CCVS::CardName = &quot;Diners Club&quot;;
+            $ShouldLength = 14;
+            last RANGE;
+        }
+
+        if ($NumberLeft &gt;= 3400 and $NumberLeft &lt;= 3499) {
+            $CCVS::CardName = &quot;American Express&quot;;
+            $ShouldLength = 15;
+            last RANGE;
+        }
+        if ($NumberLeft &gt;= 3700 and $NumberLeft &lt;= 3799) {
+            $CCVS::CardName = &quot;American Express&quot;;
+            $ShouldLength = 15;
+            last RANGE;
+        }
+
+        if ($NumberLeft &gt;= 3528 and $NumberLeft &lt;= 3589) {
+            $CCVS::CardName = &quot;JCB&quot;;
+            $ShouldLength = 16;
+            last RANGE;
+        }
+
+        if ($NumberLeft &gt;= 3890 and $NumberLeft &lt;= 3899) {
+            $CCVS::CardName = &quot;Carte Blache&quot;;
+            $ShouldLength = 14;
+            last RANGE;
+        }
+
+        if ($NumberLeft &gt;= 4000 and $NumberLeft &lt;= 4999) {
+            $CCVS::CardName = &quot;Visa&quot;;
+            VISALENGTH: {
+                if ($NumberLength &gt; 14) {
+                    $ShouldLength = 16;
+                    last VISALENGTH;
+                }
+                if ($NumberLength &lt; 14) {
+                    $ShouldLength = 13;
+                    last VISALENGTH;
+                }
+                print &quot;\nThe Visa number entered, $Number, is 14 digits long.\nVisa cards usually have 16 digits, though some have 13.\nPlease check the number and try again.\n&quot;;
+                return 0;
+            }
+            last RANGE;
+        }
+
+        if ($NumberLeft &gt;= 5100 and $NumberLeft &lt;= 5599) {
+            $CCVS::CardName = &quot;MasterCard&quot;;
+            $ShouldLength = 16;
+            last RANGE;
+        }
+
+        if ($NumberLeft == 5610) {
+            $CCVS::CardName = &quot;Australian BankCard&quot;;
+            $ShouldLength = 16;
+            last RANGE;
+        }
+
+        if ($NumberLeft == 6011) {
+            $CCVS::CardName = &quot;Discover/Novus&quot;;
+            $ShouldLength = 16;
+            last RANGE;
+        }
+
+        print &quot;\nThe first four digits of the number entered are $NumberLeft.\nIf that's correct, we don't accept that type of credit card.\nIf it's wrong, please try again.\n&quot;;
+        return 0;
+    }  # End of RANGE
+
+
+    # 3) Is the number the right length?
+    if ($NumberLength != $ShouldLength) {
+        my $Missing = $NumberLength - $ShouldLength;
+        if ($Missing &lt; 0) {
+            print &quot;\nThe $CCVS::CardName number entered, $Number, is missing &quot; . abs($Missing) . &quot; digit(s).\nPlease check the number and try again.\n&quot;;
+        } else {
+            print &quot;\nThe $CCVS::CardName number entered, $Number, has $Missing too many digit(s).\nPlease check the number and try again.\n&quot;;
+        }
+        return 0;
+    }
+
+
+    # 4) Does the number pass the Mod 10 Algorithm Checksum?
+    if (Mod10Solution($Number) == 1) {
+        return 1;
+    } else {
+        print &quot;\nThe $CCVS::CardName number entered, $Number, is invalid.\nPlease check the number and try again.\n&quot;;
+        return 0;
+    }
+}
+
+
+ 	
+sub OnlyNumericSolution() {
+    # Remove any non numeric characters.
+    # Ensure number is no more than 19 characters long.
+
+    $Number =~ tr/0-9//cd;
+    return substr($Number, 0, 19);
+}
+
+
+
+sub Mod10Solution() {
+    my $NumberLength = length($Number);
+    my $Location = 0;
+    my $Checksum = 0;
+    my $Digit = &quot;&quot;;
+
+    # Add even digits in even length strings
+    # or odd digits in odd length strings.
+    for ($Location = 1 - ($NumberLength % 2); $Location &lt; $NumberLength; $Location += 2) {
+        $Checksum += substr($Number, $Location, 1);
+    }
+
+    # Analyze odd digits in even length strings
+    # or even digits in odd length strings.
+    for ($Location = ($NumberLength % 2); $Location &lt; $NumberLength; $Location += 2) {
+        $Digit = substr($Number, $Location, 1) * 2;
+        if ($Digit &lt; 10) {
+            $Checksum += $Digit;
+        } else {
+            $Checksum += $Digit - 9;
+        }
+    }
+
+    # Is the checksum divisible by 10?
+    return ($Checksum % 10 == 0);
+}
+
+exit;
+
+</pre>
+
+<hr align="left" width="50%" size="10" />
+<i><b>End text selection above this line</b></i>
+
+&nbsp;<hr /><center><address>
+The&nbsp;Analysis&nbsp;and&nbsp;Solutions&nbsp;Company.&nbsp;&nbsp;&nbsp;&nbsp;More&nbsp;than&nbsp;just&nbsp;answers.&nbsp;Solutions.&#8482;
+<small><br />&nbsp;
+<br />v: 718-854-0335<br />f: 718-854-0409
+<br />w: <a href="http://www.analysisandsolutions.com/">www.analysisandsolutions.com</a>
+<br />e: <a href="mailto:info@analysisandsolutions.com">info@analysisandsolutions.com</a>
+<br />m: 4015 7th Ave Apt 4AJ, &nbsp;Brooklyn NY &nbsp;11232-3715
+<hr width="60%" />
+If you are having problems printing this page, please read our <a href="http://www.analysisandsolutions.com/printing.htm">Printing FAQ</a>.
+<br /><hr width="60%" />
+This URL: <a href="http://www.analysisandsolutions.com/code/ccvs-pl.htm">http://www.analysisandsolutions.com/code/ccvs-pl.htm</a>
+<br />Last modified: 25 August 2000, 4:34 pm EDT
+<br />© 2000</small></address></center></body></html>

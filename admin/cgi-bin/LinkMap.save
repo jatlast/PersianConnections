@@ -1,0 +1,120 @@
+
+KEY			VALUE
+
+SYSTEM			LiveAdmin
+
+DBNAME			DHP0170
+DBUSER			Persian
+DBPWD			citrix
+
+ROOT			http://www.persianconnections.com
+IMAGES			http://www.persianconnections.com/images
+PICTURES		http://www.persianconnections.com/Pictures
+CGIBIN			http://www.persianconnections.com/cgi-bin
+
+HTML_POPUP_BGCOLOR 	"#BDD2D2"
+HTML_HEADFOOT_BGCOLOR 	"#BDD2D2"
+HTML_NAV_BGCOLOR 	"#F5F5E3"
+HTML_BODY_BGCOLOR 	"#D1D1BF"
+
+HTML_TITLE 		persianconnections.com
+HTML_HEAD 		<strong>persianconnections</strong>
+EMAIL			admin@persianconnections.com
+#EMAIL			baumbach@bellatlantic.net
+WHICH_CONNECTIONS 	persianconnections
+LOGO			persian_connections_logo.gif
+COPYRIGHT_YEAR		2001
+
+FIRSTARROW		nav_first.gif
+NEXTARROW		nav_next.gif
+PREVIOUSARROW		nav_previous.gif
+LASTARROW		nav_last.gif
+
+NO_PIC_SMALL		photo_not_available_60x60.gif
+NO_PIC_MEDIUM		photo_not_available_120x120.gif
+NO_PIC_LARGE		photo_not_available_180x180.gif
+
+EMAILSYMBOL		Email.jpg
+DELETSYMBOL		DeleteMailX.gif
+BOOKMARKSYMBOL		pushpin2.gif
+UNREADSYMBOL		redhart.gif
+LINESYMBOL		line.gif
+SPACESYMBOL		sp1.gif
+PROCESSINGSYMBOL	processing.gif
+BECOME_MEMBER_GIF	become_a_premium_member_now.gif
+
+SMTP_HOST		10.10.6.118
+#SMTP_HOST		DHP0170.vibetrax.com
+BLAT_PATH		D:/Required
+
+AUTHORIZE_TEST_MODE	0
+PRICE_ONE		9.99
+PRICE_THREE		19.99
+PRICE_TWELVE		69.99
+PRICE_LIFETIME		199.99
+
+INBOX_COLOR_1		"white"
+INBOX_COLOR_2		"#c0c0c0"
+OUTBOX_COLOR_1		"white"
+OUTBOX_COLOR_2		"#c0c0c0"
+
+#INBOX_COLOR_1		"#FFFFCC"
+#INBOX_COLOR_2		"#FF9999"
+#OUTBOX_COLOR_1		"#CCFFCC"
+#OUTBOX_COLOR_2		"#99CCCC"
+
+LOG_FOLDER		D:/wwwroot/Persian_Connections.com/admin/log
+
+PICTURES_FOLDER		D:/wwwroot/Persian_Connections.com/pictures/
+DOS_PICTURES_FOLDER	D:\wwwroot\Persian_Connections.com\pictures\
+
+WORD_TO_FLAG_1		ass
+WORD_TO_FLAG_2		cock
+WORD_TO_FLAG_3		cos
+WORD_TO_FLAG_4		cunt
+WORD_TO_FLAG_5		dick
+WORD_TO_FLAG_6		fuck
+WORD_TO_FLAG_7		horny
+WORD_TO_FLAG_8		jende
+WORD_TO_FLAG_9		kir
+WORD_TO_FLAG_10		kos
+WORD_TO_FLAG_11		oral
+WORD_TO_FLAG_12		piss
+WORD_TO_FLAG_13		pussy
+WORD_TO_FLAG_14		sex
+WORD_TO_FLAG_15		shit
+WORD_TO_FLAG_16		slut
+WORD_TO_FLAG_17		suck
+WORD_TO_FLAG_18		whore
+WORD_TO_FLAG_19		gay
+WORD_TO_FLAG_20		lesbian
+WORD_TO_FLAG_21		homo
+NUMBER_OF_WORDS_TO_FLAG	21
+
+MALE			fixlogin_1.jpg
+MNAME			fixlogin
+FEMALE			Thursday436_1.jpg
+FNAME			Thursday436
+
+BECOME_PREMIUM_MEMBER	become_premium_member_now.gif
+
+ADMIN_MAIL_SENT_FROM_1		Admin@PersianConnections.com
+ADMIN_MAIL_SENT_FROM_2		persian.connections@verizon.net
+ADMIN_MAIL_SENT_FROM_3		connections.admin@verizon.net
+NUMBER_OF_MAIL_SENT_FROM	3
+
+#ADMIN_MAIL_SENT_TO_1	admin_GetEmailForAllPremiumMembers	
+#ADMIN_MAIL_SENT_TO_2	admin_GetEmailForAllGuestMembers
+#ADMIN_MAIL_SENT_TO_3	admin_GetEmailWhereMembersOlderThanThreeMonths
+ADMIN_MAIL_SENT_TO_1	admin_GetEmailForAllMembers
+NUMBER_OF_MAIL_SENT_TO	1
+
+#HTML_DETAIL_TEXT_COLOR	"#800000"
+
+#Manhattan Colors
+#HTML_POPUP_BGCOLOR 	"#BDD2D2"
+#HTML_HEADFOOT_BGCOLOR 	"pink"
+#HTML_NAV_BGCOLOR 	"#F5F5E3"
+#HTML_BODY_BGCOLOR 	"#D1D1BF"
+
+#osql -Ssmithers -Usa -Pcitrix -Q"select * from user_info where user_name = 'jubin'" -w65536 -otmp.txt

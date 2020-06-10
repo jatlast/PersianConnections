@@ -1,0 +1,126 @@
+################################## USER ######################################
+#                      LinkMap.dat Usage Directions
+#
+#  1. LinkMap.dat is a configuration file containing Key/Value pairs
+#  2. Left  column = Key
+#  3. Right column = Value
+#  4. No spaces are allowed in neither Keys nor Values
+#  5. Lines beginning with the Number Sign (#) are ignored
+#  6. Each group of Key/Value pairs should have a title decribing its purpose
+#
+#			Last updated on: 3/28/2003 18:48:38
+#
+###############################################################################
+
+# KEY			VALUE
+
+######### Debugging #############
+SYSTEM			GayLoveMatch_Cgi_User
+
+######### Database Login #############
+DBNAME			SMITHERS
+DBUSER			gay
+DBPWD			citrix
+
+######### URLs #############
+ROOT			http://www.gaylovematch.com
+IMAGES			http://www.gaylovematch.com/images
+PICTURES		http://www.gaylovematch.com/Pictures
+CGIBIN			http://www.gaylovematch.com/cgi-bin
+
+######### CSS #############
+STYLE_SHEET	  glm.css
+
+######### Web Page Colors #############
+HTML_POPUP_BGCOLOR	#ffffff
+HTML_HEADFOOT_BGCOLOR	#ffffff
+HTML_NAV_BGCOLOR	#ffffff
+HTML_BODY_BGCOLOR	#ffffff
+
+INBOX_COLOR_1		#FCF2DC
+INBOX_COLOR_2		#FCD294
+OUTBOX_COLOR_1		#FCF2DC
+OUTBOX_COLOR_2		#FCD294
+
+######### Web Page Text #############
+HTML_TITLE 		GayLoveMatch.com
+HTML_HEAD		<strong>GayLoveaMatch</strong>
+COPYRIGHT_YEAR		2003
+EMAIL			info@gaylovematch.com
+WHICH_CONNECTIONS	GayLoveMatch
+
+######### Icon Names #############
+FIRSTARROW		nav_first.gif
+NEXTARROW		nav_next.gif
+PREVIOUSARROW		nav_previous.gif
+LASTARROW		nav_last.gif
+
+LOGO			glm_logo.gif
+FOOTER		glm_footer.gif
+
+NO_PIC_SMALL		photo_not_available_60x60.gif
+NO_PIC_MEDIUM		photo_not_available_120x120.gif
+NO_PIC_LARGE		photo_not_available_180x180.gif
+
+EMAILSYMBOL		Email.jpg
+DELETSYMBOL		DeleteMailX.gif
+BOOKMARKSYMBOL		pushpin2.gif
+UNREADSYMBOL		redhart.gif
+LINESYMBOL		line.gif
+SPACESYMBOL		sp1.gif
+PROCESSINGSYMBOL	processing.gif
+
+BECOME_PREMIUM_MEMBER	become_premium_member_now.gif
+BECOME_MEMBER_GIF	become_a_premium_member_now.gif
+
+PLEASE_CHOOSE_PLAN	pc_please_choose_plan.gif
+
+######### Blat #############
+SMTP_HOST		Grimes
+BLAT_PATH		C:/Required
+
+######### CC Processing Test/Live Switch #############
+# 0 = Live
+# 1 = Test
+AUTHORIZE_TEST_MODE	0
+
+######### Membership Prices #############
+PRICE_ONE		4.99
+PRICE_THREE		9.99
+PRICE_TWELVE		34.99
+PRICE_LIFETIME		74.99
+
+######### Local Paths #############
+LOG_FOLDER		C:/wwwroot/GayLoveMatch.com/admin/log
+PICTURES_FOLDER		C:/wwwroot/GayLoveMatch.com/pictures/
+DOS_PICTURES_FOLDER	C:\wwwroot\GayLoveMatch.com\pictures\
+
+######### Advertising #############
+ADV_CGIBIN		http://www.OneMonkey.com/cgi-bin
+#Program name used to retrieve text ads...
+ADV_RETRIEVE		RetrieveTextAds.exe
+
+ADV_HOST_UNIQUE_ID	301
+
+######### Affiliate #############
+AFL_ROOT		http://www.OneMonkey.com/Affiliates
+AFL_CGIBIN		http://www.OneMonkey.com/Affiliates/cgi-bin
+#Program name used to retrieve text ads...
+AFL_RETRIEVE		Afl_RetrieveAds.cgi
+
+######### MassMailCurrentUsers.pl #############
+#########     Mail Paramaters     #############
+
+# Used to mail all current GLM members...
+MAIL_SQL_STATEMENT		[SELECT * FROM login_info where user_name = 'jp']
+
+MAIL_RECOVERY_FILE		ApologizeToGlmMembers.html
+MAIL_BCC_EVERY			20
+MAIL_TOTAL_MAIL_TO_SEND		200
+MAIL_START_AFTER_MAIL_COUNT	0
+MAIL_TEST_MODE			1
+MAIL_TEST_MAIL			jatlast@hotmail.com
+MAIL_BCC_MAIL			baumbach@optonline.net
+
+######### Rotating Gifs (Not used) #############
+

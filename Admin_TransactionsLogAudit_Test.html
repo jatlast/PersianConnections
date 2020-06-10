@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+  <!-- Local --><!-- DevAdmin --><!-- sql_proc = () --><!-- find_dups= () --><!-- user_name= () --><!-- OrderBy  = (date_of_this_transaction) --><!-- AscDesc  = (DESC) --><!-- Limit    = (100) --><!-- Index    = (1) --><!-- DBUSER   = (sa) --><!-- DBPWD    = (citrix) --><!-- DBNAME   = (SMITHERS) --><!-- ApName  = (D:\MyData\Personal\Projects\Connections\PersianConnectionsWebDev\admin\cgi-bin\Admin_TransactionsLogAudit.cgi) --><!-- Within message_handler looking for Error Messages
+      --><!-- Within message_handler looking for Error Messages
+      --><!-- SUCCESS: admin_TransactionsLogAudit returned with dbresults status = (1). --><!-- SQL: admin_TransactionsLogAudit --><!-- count = (0) -->
+  <HEAD>
+    <META name="generator" content="HTML Tidy, see www.w3.org">
+    <TITLE>
+      PersianConnections Admin Mail
+    </TITLE>
+  </HEAD>
+  <BODY>
+<SCRIPT type="text/javascript" language="javascript">
+<!--
+function mOvr(src,clrOver){ 
+    if (!src.contains(event.fromElement)){ 
+        src.style.cursor = 'hand'; 
+        src.bgColor = clrOver; 
+    } 
+} 
+function mOut(src,clrIn){ 
+    if (!src.contains(event.toElement)){ 
+        src.style.cursor = 'default'; 
+        src.bgColor = clrIn; 
+    } 
+} 
+function mClk(src){ 
+    if(event.srcElement.tagName=='TD')
+        src.children.tags('A')[0].click();
+}
+// -->
+</SCRIPT>
+    <!-- Begin Entire Body NOT Logged In --><!-- Begin Header Table -->
+    <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+      <!-- Begin Header Row -->
+      <TR>
+        <TD colspan="100%" bgcolor="#D1D1BF" height="50" valign="middle">
+          <IMG alt="PersianConnections Logo" src="../../images/persianconnections_logo_arial_large.gif">
+        </TD>
+      </TR>
+    </TABLE>
+    <!-- End Header Row --><!-- Begin Admin Navigation Table -->
+    <TABLE border="0" cellpadding="3" cellspacing="3" width="100%">
+      <TR align="center">
+        <TD bgcolor="#336699" onmouseover='mOvr(this,"#cccc99");' onmouseout='mOut(this,"#336699");' onclick="mClk(this);">
+          <A href="Admin_FreeFormAudit.cgi"><FONT color="FFFFFF">Free Form Audit</FONT></A>
+        </TD>
+        <TD bgcolor="#336699" onmouseover='mOvr(this,"#cccc99");' onmouseout='mOut(this,"#336699");' onclick="mClk(this);">
+          <A href="Admin_FindDuplicates.cgi"><FONT color="FFFFFF">Find Duplicates</FONT></A>
+        </TD>
+        <TD bgcolor="#336699" onmouseover='mOvr(this,"#cccc99");' onmouseout='mOut(this,"#336699");' onclick="mClk(this);">
+          <A href="Admin_GraphNewMembers.cgi"><FONT color="FFFFFF">Graph Member Creation Date</FONT></A>
+        </TD>
+        <TD bgcolor="#336699" onmouseover='mOvr(this,"#cccc99");' onmouseout='mOut(this,"#336699");' onclick="mClk(this);">
+          <A href="Admin_GetDanglingUserNames.cgi"><FONT color="FFFFFF">Get Dangling User Names</FONT></A>
+        </TD>
+        <TD bgcolor="#336699" onmouseover='mOvr(this,"#cccc99");' onmouseout='mOut(this,"#336699");' onclick="mClk(this);">
+          <A href="Admin_GetAllTableInfo.cgi"><FONT color="FFFFFF">Get All Table Info</FONT></A>
+        </TD>
+        <TD bgcolor="#cccc99" onmouseover='mOvr(this,"#cccc99");' onmouseout='mOut(this,"#cccc99");' onclick="mClk(this);">
+          <A href="Admin_TransactionsLogAudit.cgi"><FONT color="FFFFFF">Transactions Log</FONT></A>
+        </TD>
+        <TD bgcolor="#336699" onmouseover='mOvr(this,"#cccc99");' onmouseout='mOut(this,"#336699");' onclick="mClk(this);">
+          <A href="Inbox.exe"><FONT color="FFFFFF">Admin 7</FONT></A>
+        </TD>
+      </TR>
+    </TABLE>
+    <!-- End Admin Navigation Table --><!-- Begin Dynamic Content Table -->
+    <TABLE border="0" cellpadding="3" cellspacing="3" width="100%" bgcolor="#F5F5E3">
+      <TR>
+        <TD align="center">
+          <H1>
+             <FONT color="red">0</FONT> Profiles Found
+          </H1>
+        </TD>
+      </TR>
+    </TABLE>
+    <!-- Begin Dynamic Content Table -->
+    <TABLE border="0" cellpadding="3" cellspacing="3" width="100%" bgcolor="#F5F5E3">
+      <!-- Begin Column Title Rows (Sortable) -->
+      <TR align="center" bgcolor="#FFFF66">
+        <TD>
+          <A href="javascript:newWindowGeneric('/DeleteAllCookies.html')"><STRONG>Delete Cookies</STRONG></A>
+        </TD>
+        <TD>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.transaction_id&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By transaction_id">transaction id</A> 
+          <HR>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.x_response_reason_text&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By x_response_reason_text">xrrt</A> 
+          <HR>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.batch_transaction_id&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By batch_transaction_id">batch transaction id</A> 
+          <HR>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.x_description&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By x_description">description</A>
+        </TD>
+        <TD>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.user_id&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By user_id">user id</A> 
+          <HR>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.user_name&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By user_name">user name</A>
+        </TD>
+        <TD>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.card_type&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By card_type">card type</A> 
+          <HR>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.name_on_card&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By name_on_card">name on card</A> 
+          <HR>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.account_number&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By account_number">account number</A> 
+          <HR>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.expiration_month&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By expiration_month">exp month</A> 
+          <HR>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.expiration_year&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By expiration_year">exp year</A>
+        </TD>
+        <TD>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.bank_ABA_number&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By bank_ABA_number">ABA</A> 
+          <HR>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.bank_account_number&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By bank_account_number">account #</A>
+        </TD>
+        <TD>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.x_method&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By x_method">method</A> 
+          <HR>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.transaction_type&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By transaction_type">transaction type</A>
+        </TD>
+        <TD>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.months_joined&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By months_joined">months joined</A>
+        </TD>
+        <TD>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.amount&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By amount">amount</A>
+        </TD>
+        <TD>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.date_of_this_transaction&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By date_of_this_transaction"><IMG src="../../images/ascending.gif" height="7" hspace="3" width="7" border="0" alt="sort gif">this trans date</A>
+        </TD>
+        <TD>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.date_of_next_transaction&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By date_of_next_transaction">next trans date</A>
+        </TD>
+        <TD>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.x_response_code&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By x_response_code">xrc</A> 
+          <HR>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.x_response_subcode&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By x_response_subcode">xrs</A> 
+          <HR>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.x_response_reason_code&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By x_response_reason_code">xrrc</A>
+        </TD>
+        <TD>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.x_trans_id&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By x_trans_id">trans id</A>
+        </TD>
+        <TD>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.x_auth_code&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By x_auth_code">auth</A> 
+          <HR>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.x_avs_code&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By x_avs_code">avs</A> 
+          <HR>
+          <A href="/admin/cgi-bin/Admin_TransactionsLogAudit.cgi?user_name=&amp;order_by=transactions_log.x_md5_hash&amp;asc_desc=DESC&amp;limit=100&amp;index=1" title="Sort Ascending By x_md5_hash">md5</A>
+        </TD>
+        <!-- End Column Title Rows (Sortable) -->
+      </TR>
+      <TR>
+        <!-- Limiting Form -->
+        <TD colspan="13" align="center">
+          <FORM method="POST" action="Admin_TransactionsLogAudit.cgi">
+            <TABLE border="0" cellspacing="0" cellpadding="2" bgcolor="#cacae3" width="600">
+              <TR>
+                <TD>
+                  <TABLE border="0" width="100%" cellspacing="0" cellpadding="2" bgcolor="#e3e3e3">
+                    <TR>
+                      <TH bgcolor="#b3b3d7" colspan="8" align="left" height="20">
+                        <FONT size="2" face="Arial, Helvetica, sans-serif" color="black">Limiting Form</FONT>
+                      </TH>
+                    </TR>
+                    <TR>
+                      <TD align="center">
+                        <INPUT type="radio" name="date_range" value="all" checked> <FONT size="2" face="Arial, Helvetica, sans-serif" color="black"> All Dates</FONT>
+                      </TD>
+                      <TD align="right">
+                        <FONT size="2" face="Arial, Helvetica, sans-serif" color="black">Status:</FONT>
+                      </TD>
+                      <TD>
+                        <SELECT name="x_response_code">
+                          <OPTION value="">
+                            All
+                          </OPTION>
+                          <OPTION value="0">
+                            Waiting
+                          </OPTION>
+                          <OPTION value="1">
+                            Approved
+                          </OPTION>
+                          <OPTION value="2">
+                            Declined
+                          </OPTION>
+                          <OPTION value="3">
+                            Error
+                          </OPTION>
+                        </SELECT>
+                      </TD>
+                    </TR>
+                    <TR>
+                      <TD align="center">
+                        <INPUT type="radio" name="date_range" value="limit"> <INPUT size="10" value="JTB" name="from_date"> <FONT size="2" face="Arial, Helvetica, sans-serif" color="black">&nbsp;to&nbsp;</FONT> <INPUT size="10" value="JTB" name="to_date">
+                      </TD>
+                      <TD align="right">
+                        <FONT size="2" face="Arial, Helvetica, sans-serif" color="black">Transaction Type:</FONT>
+                      </TD>
+                      <TD>
+                        <SELECT name="transaction_type">
+                          <OPTION value="AUTH_CAPTURE">
+                            Capture
+                          </OPTION>
+                          <OPTION value="CREDIT">
+                            Credit
+                          </OPTION>
+                          <OPTION value="VOID">
+                            Void
+                          </OPTION>
+                        </SELECT>
+                      </TD>
+                    </TR>
+                    <TR>
+                      <TD align="center">
+                      </TD>
+                      <TD align="right">
+                        <FONT size="2" face="Arial, Helvetica, sans-serif" color="black">User Name:</FONT>
+                      </TD>
+                      <TD>
+                        <INPUT name="user_name" size="10"> <INPUT type="hidden" name="order_by" value="date_of_this_transaction"> <INPUT type="hidden" name="asc_desc" value="DESC"> <INPUT type="hidden" name="limit" value="100"> <INPUT type="hidden" name="index" value="1">
+                      </TD>
+                    </TR>
+                    <TR>
+                      <TD bgcolor="#cacae3" colspan="3" align="center" valign="middle" height="20">
+                        <INPUT type="submit" name="submit" value="submit">
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+            </TABLE>
+          </FORM>
+        </TD>
+      </TR>
+    </TABLE>
+    <!-- End Dynamic Content Table --><!-- OrderBy = (date_of_this_transaction) --><!-- AscDesc = (ASC) --><!-- Limit   = (100) --><!-- Index   = (1) --><!-- Total   = (0) -->
+    <TABLE width="100%" border="0" cellpadding="3" cellspacing="3">
+      <TR>
+        <TD colspan="100%" bgcolor="#0066CC" height="50" valign="middle">
+          PersianConnections.com
+          <BR>
+           Copyright &copy; 2001 PersianConnections.com. All rights reserved.
+        </TD>
+      </TR>
+    </TABLE>
+    <!--MAIN TABLE-->
+    <TABLE border="0" cellpadding="0" cellspacing="4" width="68">
+      <!--LH COL-->
+      <TR valign="top">
+        <TD align="center" bgcolor="#eeeecc" width="150">
+          <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+            <TR>
+              <TD align="center">
+                <TABLE border="0" cellpadding="1" cellspacing="0" width="100%">
+                  <TR>
+                    <TD>
+                    </TD>
+                  </TR>
+                  <TR>
+                    <TD align="center" colspan="7">
+                    </TD>
+                  </TR>
+                  <TR>
+                    <TD align="center" bgcolor="#cccc99" colspan="7">
+                      <STRONG>November 2001</STRONG>
+                    </TD>
+                  </TR>
+                  <TR align="right" valign="top" bgcolor="#dedede">
+                    <TD>
+                      <TT>Su</TT>
+                    </TD>
+                    <TD>
+                      <TT>Mo</TT>
+                    </TD>
+                    <TD>
+                      <TT>Tu</TT>
+                    </TD>
+                    <TD>
+                      <TT>We</TT>
+                    </TD>
+                    <TD>
+                      <TT>Th</TT>
+                    </TD>
+                    <TD>
+                      <TT>Fr</TT>
+                    </TD>
+                    <TD>
+                      <TT>Sa</TT>
+                    </TD>
+                  </TR>
+                  <TR align="right" valign="top" bgcolor="#eeeecc">
+                    <TD>
+                      <TT><BR>
+                       4
+                      <BR>
+                       11
+                      <BR>
+                       18
+                      <BR>
+                       25
+                      <BR>
+                      </TT>
+                    </TD>
+                    <TD>
+                      <TT><BR>
+                       5
+                      <BR>
+                       12
+                      <BR>
+                       19
+                      <BR>
+                       26
+                      <BR>
+                      </TT>
+                    </TD>
+                    <TD>
+                      <TT><BR>
+                       6
+                      <BR>
+                       13
+                      <BR>
+                       20
+                      <BR>
+                       27
+                      <BR>
+                      </TT>
+                    </TD>
+                    <TD>
+                      <TT><BR>
+                       7
+                      <BR>
+                       14
+                      <BR>
+                       21
+                      <BR>
+                       28
+                      <BR>
+                      </TT>
+                    </TD>
+                    <TD>
+                      <TT>1
+                      <BR>
+                       8
+                      <BR>
+                       15
+                      <BR>
+                       22
+                      <BR>
+                       29
+                      <BR>
+                      </TT>
+                    </TD>
+                    <TD>
+                      <TT>2
+                      <BR>
+                       9
+                      <BR>
+                       16
+                      <BR>
+                       23
+                      <BR>
+                       30
+                      <BR>
+                      </TT>
+                    </TD>
+                    <TD>
+                      <TT>3
+                      <BR>
+                       10
+                      <BR>
+                       17
+                      <BR>
+                       24
+                      <BR>
+                      <BR>
+                      </TT>
+                    </TD>
+                  </TR>
+                </TABLE>
+              </TD>
+            </TR>
+          </TABLE>
+          <!-- End Footer Table (Copyright) -->
+<SCRIPT type="text/javascript" language="javascript">
+<!--
+function newWindowSingleProfile(URLtoOpen) 
+{
+    var myWindow = window.open(URLtoOpen, 'SingleProfile', 'toolbar=yes,location=yes,scrollbars=yes,resizable=yes,width=850,height=850')
+    myWindow.focus()
+}
+function newWindowBecomeUser(URLtoOpen) 
+{
+    var myWindow = window.open(URLtoOpen, 'AssumeUserName', 'toolbar=yes,location=yes,scrollbars=yes,resizable=yes,width=850,height=700')
+    myWindow.focus()
+}
+function newWindowDeletePic(picName) 
+{
+    if (confirm("WARNING! There is no way to undo a DELETE!!!  Are you sure you want to continue?")) 
+        {
+            var myWindow = window.open(picName, 'Guidelines', 'toolbar=no,location=no,scrollbars=yes,resizable=yes,width=850,height=1000')
+            myWindow.focus()
+        }
+}
+function newWindowCreditAccount(myURL) 
+{
+    if (confirm("Are you sure you want to credit the user?")) 
+        {
+            var myWindow = window.open(myURL, 'Guidelines', 'toolbar=no,location=no,scrollbars=yes,resizable=yes,width=850,height=1000')
+            myWindow.focus()
+        }
+}
+function newWindowGeneric(picName) 
+{
+        var myWindow = window.open(picName, 'Guidelines', 'toolbar=no,location=no,scrollbars=yes,resizable=yes,width=850,height=1000')
+        myWindow.focus()
+}
+// -->
+</SCRIPT>
+        </TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>
+
